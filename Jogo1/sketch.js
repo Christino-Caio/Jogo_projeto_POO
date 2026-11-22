@@ -1,18 +1,34 @@
-function setup() {
-    createCanvas(800, 600);
+var fundoTela;
+
+async function setup() {
+    createCanvas(464*2, 260*2);
+    fundoTela = await loadImage("assets/background.jpg");
+    player = new Nave(270,150,"red");
 }
 
 function draw() {
-    background("green");
+    background(fundoTela);
+    player.show();
+    gameControls();
 
-
-     //when mouse button is pressed, circles turn black
-    if (mouseIsPressed === true) {
-        fill(0);
-    } else {
-        fill(255);
     }
 
-    //Draw a white circle at mouse position (mouseX, mouseY) with a width of 100 similar to Step 6
-    circle(mouseX, mouseY, 100);
+function gameControls(){
+
+    if(keyIsDown(UP_ARROW)){
+        player.yNave = player.yNave -3;
     }
+
+     if(keyIsDown(DOWN_ARROW)){
+        player.yNave = player.yNave +3;
+    }
+
+    if(keyIsDown(LEFT_ARROW)){
+        player.xNave = player.xNave -3;
+    }
+
+    if(keyIsDown(RIGHT_ARROW)){
+        player.xNave = player.xNave +3;
+    }
+    
+}

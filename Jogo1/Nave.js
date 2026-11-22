@@ -10,7 +10,7 @@ class Nave{
     show(){
 
         fill(this.cor);
-        square(this.xNave,this.YNave,20);
+        square(this.xNave,this.yNave,20);
     }
 
 
